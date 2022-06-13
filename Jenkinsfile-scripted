@@ -1,0 +1,14 @@
+node {
+    def mvnHome = tool 'maven 3.6.3'
+    stage ('SCM Checkout') {
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bnagoor0', url: 'https://gitlab.com/helloworldrap/sample_helloworld.git']]])
+    }
+    stage ('Build'){
+    sh "${mvnHome}/bin/mvn clean install "
+        
+    }
+    stage ('Deployment') {
+    sh "cp $WORKSPACE/target/*.war /home/nagoor/softwares/apache-tomcat-9.0.39/webapps"
+
+    }
+}
