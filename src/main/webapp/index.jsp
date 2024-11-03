@@ -3,7 +3,7 @@
 <title>Hello World!</title>
 </head>
 <body>
-	<p style="font-size:40px ; color:green" >Hello, Welcome to My World! Your Application is Successfully Deployed CuurentDate.</p>
+	<p style="font-size:40px ; color:green" >Hello, Welcome to My World! Your Application is Successfully Deployed CurentDate.</p>
 	<p>
 		It is now
 		<%= new java.util.Date() %></p>
